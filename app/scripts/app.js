@@ -1,6 +1,6 @@
 (function () {
 
-    var everlive = new Everlive("sz0Zz1ZApYIzWbTh");
+    window.everlive = new Everlive("sz0Zz1ZApYIzWbTh");
     var images = everlive.data("PictureInfo");
 
     var loadPhoto = function () {
@@ -20,19 +20,6 @@
                 function (error) {
                     console.log(error);
                 })
-        //everlive.Files.get()
-
-        //.then(function (data) {
-        //    var files = [];
-        //    data.result.forEach(function (image) {
-        //        files.push(image.Uri);
-        //    });
-
-        //    $('#images').kendoMobileListView({
-        //        dataSource: files,
-        //        template: '<img src="#: data #">'
-        //    });
-        //});
     };
 
     //if there are any photos already in the db ... show them immediatly
@@ -110,37 +97,6 @@
             };
 
             navigator.geolocation.getCurrentPosition(geoSuccess, error, geoConfig);
-
-
-            //var success = function (data) {
-            //    picInfo.img = data;
-            //    console.log('---added picture to picInfo ...');
-            //    navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, geolocationOptions);
-            //};
-
-            //var geolocationSuccess = function (data) {
-            //    console.log('---added latutude and longitude...');
-            //    picInfo.coords = {};
-            //    picInfo.coords.latitude = data.coords.latitude;
-            //    picInfo.coords.longitude = data.coords.longitude;
-            //    //picInfo.image = data;
-
-            //    images.create(picInfo, function (data) { console.log("Pictire object added!"); }, function (error) { "No object created" });
-            //    loadPhoto();
-            //    //createEverliveObject(picInfo);
-            //};
-
-            //var error = function () {
-            //    navigator.notification.alert("Unfortunately we could not add the image");
-            //};
-
-            //var config = {
-            //    destinationType: Camera.DestinationType.DATA_URL,
-            //    targetHeight: 400,
-            //    targetWidth: 400
-            //};
-
-            //navigator.camera.getPicture(success, error, config);
         },
 
         loadPhotos: loadPhoto,
