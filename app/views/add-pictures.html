@@ -1,0 +1,24 @@
+<div data-role="view" 
+     id="initialView"
+     data-id="initialView"
+     data-model="listView" 
+     data-layout="tabstrip-layout">
+    
+    <div data-role="navbar">
+        <button data-role="button" 
+                data-align="center"
+                data-bind="click: addImage">
+            Add
+        </button>
+        
+        <button data-role="button" 
+                data-align="center"
+                data-bind="click: loadPhotos">
+            Load Photos
+        </button>
+    </div>
+    
+    <ul id="images">
+    </ul>
+    
+</div>
