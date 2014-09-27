@@ -9,15 +9,20 @@
 
                 var files = [];
                 for (var i = 0; i < contacts.length; i++) {
-                    //navigator.notification.alert('GivenName ' + contacts[i]['name']['givenName']);
-                    //$('#contacts').append('<li>' + contacts[i]['name']['givenName'] + '</li>');
-                    //$('#contacts').append('<li>' + contacts[i]['name']['formatted'] + '</li>');
-                    files.push(contacts[i]['name']['givenName']);
+                  
+                    var contactObject = {};
+                    contactObject.name = contacts[i]['name']['givenName'];
+                    contactObject.number = contacts[i]['phoneNumbers'][0]['value'];
+                    files.push(contactObject);
                 }
                 
+                //for(var prop in contacts[0]['phoneNumbers'][0]['value']){
+                    //navigator.notification.alert('number: ' + contacts[0]['phoneNumbers'][0]['value']);  
+                //}
+                  
                 $('#contacts').kendoMobileListView({
                     dataSource: files,
-                    template: '<li> #: data #</li>'
+                    template: '<li> #: data.name # - #: data.number #</li>'
                 });
             };
 
@@ -27,9 +32,10 @@
 
             // find all contacts with 'Bob' in any name field
             var options = new ContactFindOptions();
-            options.filter = "kaka";
+            var searchContact = $('#contact-input')[0].value;
+            options.filter = searchContact || "";
             options.multiple = true;
-            var fields = ["displayName", "name", "nickname", "id", "phoneNumbers"];
+            var fields = ["name","phoneNumbers"];
             navigator.contacts.find(fields, onSuccess, onError, options);
         }
     });
