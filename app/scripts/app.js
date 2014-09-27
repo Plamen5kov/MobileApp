@@ -1,27 +1,29 @@
 (function () {
 
     window.everlive = new Everlive("sz0Zz1ZApYIzWbTh");
+    var images = everlive.data("PictureInfo");
 
     var loadPhoto = function () {
-        everlive.Files.get()
+        images.get()
+            .then(function (data) {
+                    console.log(data);
+                    var files = [];
+                    data.result.forEach(function (image) {
+                        files.push(image.Img.Uri);
+                    });
 
-        .then(function (data) {
-            var files = [];
-            data.result.forEach(function (image) {
-                files.push(image.Uri);
-            });
-
-            $('#images').kendoMobileListView({
-                dataSource: files,
-                template: '<img src="#: data #">'
-            });
-        });
+                    $('#images').kendoMobileListView({
+                        dataSource: files,
+                        template: '<img src="#: data #">'
+                    });
+                },
+                function (error) {
+                    console.log(error);
+                })
     };
 
     //if there are any photos already in the db ... show them immediatly
     loadPhoto();
-
-    var picInfo = {};
 
     var geolocationError = function (data) {
         console.log('---some err---');
@@ -47,33 +49,52 @@
 
     window.listView = kendo.observable({
         addImage: function () {
+            var location = {};
 
-            var success = function (data) {
-                picInfo.img = data;
-                console.log('---added picture to picInfo ...');
-                navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, geolocationOptions);
-            };
+            var picSuccess = function (data) {
 
-            var geolocationSuccess = function (data) {
-                console.log('---added latutude and longitude...');
-                picInfo.coords = {};
-                picInfo.coords.latitude = data.coords.latitude;
-                picInfo.coords.longitude = data.coords.longitude;
-
-                createEverliveObject(picInfo);
+                window.everlive.Files.create({ //if you took the pic...create a file in everlive
+                        Filename: Math.random().toString(36).substring(2, 15) + ".jpg", //give it random name
+                        ContentType: "image/jpg", // config
+                        base64: data //more config
+                    },
+                    function (picData) {
+                        window.everlive.data('PictureInfo').create({
+                                'Img': picData.result,
+                                'Location': location
+                            },
+                            function (data) {
+                                console.log(data);
+                            }, error);
+                    }, error);
             };
 
             var error = function () {
                 navigator.notification.alert("Unfortunately we could not add the image");
             };
 
-            var config = {
+            var picConfig = {
                 destinationType: Camera.DestinationType.DATA_URL,
                 targetHeight: 400,
                 targetWidth: 400
             };
 
-            navigator.camera.getPicture(success, error, config);
+            var geoConfig = {
+                maximumAge: 3000,
+                timeout: 5000,
+                enableHighAccuracy: true
+            };
+
+            var geoSuccess = function (data) {
+                location = {
+                    latitude: data.coords.latitude,
+                    longitude: data.coords.longitude
+                };
+
+                navigator.camera.getPicture(picSuccess, error, picConfig);
+            };
+
+            navigator.geolocation.getCurrentPosition(geoSuccess, error, geoConfig);
         },
 
         loadPhotos: loadPhoto,
