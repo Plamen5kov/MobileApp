@@ -1,6 +1,6 @@
 (function () {
 
-    var everlive = new Everlive("sz0Zz1ZApYIzWbTh");
+    window.everlive = new Everlive("sz0Zz1ZApYIzWbTh");
 
     var loadPhoto = function () {
         everlive.Files.get()
@@ -73,10 +73,7 @@
                 targetWidth: 400
             };
 
-            navigator.camera.getPicture(success, error, {
-                quality: 50,
-                destinationType: Camera.DestinationType.FILE_URI
-            });
+            navigator.camera.getPicture(success, error, config);
         },
 
         loadPhotos: loadPhoto,
