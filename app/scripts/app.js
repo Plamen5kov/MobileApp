@@ -6,17 +6,17 @@
     var loadPhoto = function () {
         images.get()
             .then(function (data) {
-                    console.log(data);
-                    var files = [];
-                    data.result.forEach(function (image) {
-                        files.push(image.Img.Uri);
-                    });
+                console.log(data);
+                var files = [];
+                data.result.forEach(function (image) {
+                    files.push(image.Img.Uri);
+                });
 
-                    $('#images').kendoMobileListView({
-                        dataSource: files,
-                        template: '<img src="#: data #">'
-                    });
-                },
+                $('#images').kendoMobileListView({
+                    dataSource: files,
+                    template: '<img src="#: data #">'
+                });
+            },
                 function (error) {
                     console.log(error);
                 })
@@ -50,23 +50,35 @@
     window.listView = kendo.observable({
         addImage: function () {
             var location = {};
+            var content = "";
 
             var picSuccess = function (data) {
 
-                window.everlive.Files.create({ //if you took the pic...create a file in everlive
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://maps.google.com/maps/api/geocode/json?latlng=' + location.latitude + ',' + location.longitude + '&sensor=false',
+                    contentType: 'application/json'
+                })
+                .then(function (info) {
+                    content = info.results[0].formatted_address || "";
+                 })    
+                .then(function () {
+                    window.everlive.Files.create({ //if you took the pic...create a file in everlive
                         Filename: Math.random().toString(36).substring(2, 15) + ".jpg", //give it random name
                         ContentType: "image/jpg", // config
                         base64: data //more config
                     },
                     function (picData) {
                         window.everlive.data('PictureInfo').create({
-                                'Img': picData.result,
-                                'Location': location
-                            },
+                            'Img': picData.result,
+                            'Location': location,
+                            'Address': content
+                        },
                             function (data) {
                                 console.log(data);
                             }, error);
                     }, error);
+                });
             };
 
             var error = function () {

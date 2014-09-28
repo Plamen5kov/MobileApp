@@ -1,0 +1,124 @@
+<!--<div id="example">
+    <div class="demo-section k-header" style="padding: 1em;">
+        <div id="map"></div>
+    </div>
+    <script>
+        function createMap() {
+            $("#map").kendoMap({
+                center: [51.505, -0.09],
+                zoom: 3,
+                layers: [{
+                    type: "bing",
+                    imagerySet: "aerialWithLabels",
+
+                    // IMPORTANT: This key is locked to demos.telerik.com
+                    // Please replace with your own Bing Key
+                    key: "AhffGrpelS1orWFHrZkq_Zh2fOviT6hKYATwE1C5xzyD34yFFhq8wbQenl2fzhPo"
+                }]
+            });
+        }
+
+        $(document).ready(createMap);
+    </script>
+</div>-->
+<div id="example">
+    <div class="demo-section k-header" style="padding: 1em;">
+        <div id="map"></div>
+    </div>
+    <script src="scripts/places.js"></script>
+</div>
+
+<!--<div id="example">
+    <div class="demo-section k-header" style="padding: 1em;">
+        <div id="map"></div>
+    </div>
+    <script>
+        function createMap() {
+            $("#map").kendoMap({
+                center: [51.505, -0.09],
+                zoom: 3,
+                layers: [{
+                    type: "bing",
+                    imagerySet: "aerialWithLabels",
+
+                    // IMPORTANT: This key is locked to demos.telerik.com
+                    // Please replace with your own Bing Key
+                    key: "AhffGrpelS1orWFHrZkq_Zh2fOviT6hKYATwE1C5xzyD34yFFhq8wbQenl2fzhPo"
+                }]
+            });
+        }
+
+        $(document).ready(createMap);
+    </script>
+</div>-->
+<!--<div id="example">
+    <div class="demo-section k-header" style="padding: 1em;">
+        <div id="map"></div>
+    </div>
+    <script id="info-template" type="text/x-kendo-template">
+        <h4>#: City #, #= Country #</h4>
+        <p class="info">Population #= kendo.toString(Pop2010 * 1000, "N0") #</p>
+    </script>
+    <script id="empty-info-template" type="text/x-kendo-template">
+    </script>
+    <script>
+        function createMap() {
+            var template = kendo.template($("#info-template").html());
+            var emptyTemplate = kendo.template($("#empty-info-template").html());
+            var activeShape;
+
+            $("#map").kendoMap({
+                center: [45, 25],
+                minZoom: 3,
+                zoom: 5,
+                wraparound: false,
+                layers: [{
+                    type: "tile",
+                    urlTemplate: "http://otile3.mqcdn.com/tiles/1.0.0/sat/#= zoom #/#= x #/#= y #.png"
+                }, {
+                    type: "bubble",
+                    attribution: "Population data from Nordpil and UN Population Division.",
+                    style: {
+                        fill: {
+                            color: "#fff",
+                            opacity: 0.4
+                        },
+                        stroke: {
+                            width: 0
+                        }
+                    },
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "../content/dataviz/map/urban-areas.json",
+                                dataType: "json"
+                            }
+                        }
+                    },
+                    locationField: "Location",
+                    valueField: "Pop2010"
+                }],
+                shapeMouseEnter: onShapeMouseEnter,
+                reset: onReset
+            });
+
+            function onShapeMouseEnter(e) {
+                if (activeShape) {
+                    activeShape.options.set("stroke", null);
+                }
+
+                activeShape = e.shape;
+                activeShape.options.set("stroke", { width: 1.5, color: "#fff" });
+
+                $("#info").html(template(e.shape.dataItem));
+            }
+
+            function onReset() {
+                $("#info").html(emptyTemplate({}));
+                activeShape = null;
+            }
+        }
+
+        $(document).ready(createMap);
+    </script>
+</div>-->
