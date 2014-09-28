@@ -1,15 +1,20 @@
 (function () {
+    var images = everlive.data("PictureInfo");
 
-    window.everlive = new Everlive("sz0Zz1ZApYIzWbTh");
+    var loadPhoto = function () {
+        images.get()
+            .then(function (data) {
+                    console.log(data);
+                    var files = [];
+                    data.result.forEach(function (image) {
+                        files.push(image.Img.Uri);
+                    });
 
-    document.addEventListener("deviceready", function () {
-        navigator.splashscreen.hide();
-
-                $('#images').kendoMobileListView({
-                    dataSource: files,
-                    template: '<img src="#: data #">'
-                });
-            },
+                    $('#images').kendoMobileListView({
+                        dataSource: files,
+                        template: '<img src="#: data #">'
+                    });
+                },
                 function (error) {
                     console.log(error);
                 })
@@ -39,39 +44,26 @@
         })
             .then(loadPhoto);
     }
-
-    window.listView = kendo.observable({
+     window.listView = kendo.observable({
         addImage: function () {
             var location = {};
-            var content = "";
 
             var picSuccess = function (data) {
 
-                $.ajax({
-                    type: 'GET',
-                    url: 'http://maps.google.com/maps/api/geocode/json?latlng=' + location.latitude + ',' + location.longitude + '&sensor=false',
-                    contentType: 'application/json'
-                })
-                .then(function (info) {
-                    content = info.results[0].formatted_address || "";
-                 })    
-                .then(function () {
-                    window.everlive.Files.create({ //if you took the pic...create a file in everlive
+                window.everlive.Files.create({ //if you took the pic...create a file in everlive
                         Filename: Math.random().toString(36).substring(2, 15) + ".jpg", //give it random name
                         ContentType: "image/jpg", // config
                         base64: data //more config
                     },
                     function (picData) {
                         window.everlive.data('PictureInfo').create({
-                            'Img': picData.result,
-                            'Location': location,
-                            'Address': content
-                        },
+                                'Img': picData.result,
+                                'Location': location
+                            },
                             function (data) {
                                 console.log(data);
                             }, error);
                     }, error);
-                });
             };
 
             var error = function () {
@@ -105,26 +97,4 @@
         loadPhotos: loadPhoto,
     });
 
-    document.addEventListener("deviceready", function () {
-        var app = new kendo.mobile.Application(document.body, {
-            skin: "flat",
-            layout: "login-layout",
-            initial: "#login-view"
-        });
-    });
-
-    document.addEventListener("offline", onOffline, false);
-
-    function onOffline() {
-        navigator.notification.alert("Our app needs to have THE NET!!!");
-        navigator.notification.vibrate(200);
-    }
-
-    document.addEventListener("online", onOnfline, false);
-
-    function onOnfline() {
-        navigator.notification.beep(1);
-    }
-
-
-}());
+})();
