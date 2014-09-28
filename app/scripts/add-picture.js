@@ -1,3 +1,4 @@
+/// <reference path="app.js" />
 (function () {
     var images = everlive.data("PictureInfo");
 
@@ -45,56 +46,68 @@
             .then(loadPhoto);
     }
      window.listView = kendo.observable({
-        addImage: function () {
-            var location = {};
+         addImage: function () {
+             var location = {};
+             var content = "";
 
-            var picSuccess = function (data) {
+             var picSuccess = function (data) {
 
-                window.everlive.Files.create({ //if you took the pic...create a file in everlive
-                        Filename: Math.random().toString(36).substring(2, 15) + ".jpg", //give it random name
-                        ContentType: "image/jpg", // config
-                        base64: data //more config
-                    },
-                    function (picData) {
-                        window.everlive.data('PictureInfo').create({
-                                'Img': picData.result,
-                                'Location': location
-                            },
-                            function (data) {
-                                console.log(data);
-                            }, error);
-                    }, error);
-            };
+                 $.ajax({
+                     type: 'GET',
+                     url: 'http://maps.google.com/maps/api/geocode/json?latlng=' + location.latitude + ',' + location.longitude + '&sensor=false',
+                     contentType: 'application/json'
+                 })
+                 .then(function (info) {
+                     content = info.results[0].formatted_address || "";
+                 })
+                 .then(function () {
+                     window.everlive.Files.create({ //if you took the pic...create a file in everlive
+                         Filename: Math.random().toString(36).substring(2, 15) + ".jpg", //give it random name
+                         ContentType: "image/jpg", // config
+                         base64: data //more config
+                     },
+                     function (picData) {
+                         window.everlive.data('PictureInfo').create({
+                             'Img': picData.result,
+                             'Location': location,
+                             'Address': content
+                         },
+                             function (data) {
+                                 console.log(data);
+                             }, error);
+                     }, error);
+                 });
+             };
 
-            var error = function () {
-                navigator.notification.alert("Unfortunately we could not add the image");
-            };
+             var error = function () {
+                 navigator.notification.alert("Unfortunately we could not add the image");
+             };
 
-            var picConfig = {
-                destinationType: Camera.DestinationType.DATA_URL,
-                targetHeight: 400,
-                targetWidth: 400
-            };
+             var picConfig = {
+                 destinationType: Camera.DestinationType.DATA_URL,
+                 targetHeight: 400,
+                 targetWidth: 400
+             };
 
-            var geoConfig = {
-                maximumAge: 3000,
-                timeout: 5000,
-                enableHighAccuracy: true
-            };
+             var geoConfig = {
+                 maximumAge: 3000,
+                 timeout: 5000,
+                 enableHighAccuracy: true
+             };
 
-            var geoSuccess = function (data) {
-                location = {
-                    latitude: data.coords.latitude,
-                    longitude: data.coords.longitude
-                };
+             var geoSuccess = function (data) {
+                 location = {
+                     latitude: data.coords.latitude,
+                     longitude: data.coords.longitude
+                 };
 
-                navigator.camera.getPicture(picSuccess, error, picConfig);
-            };
+                 navigator.camera.getPicture(picSuccess, error, picConfig);
+             };
 
-            navigator.geolocation.getCurrentPosition(geoSuccess, error, geoConfig);
-        },
+             navigator.geolocation.getCurrentPosition(geoSuccess, error, geoConfig);
+         },
 
-        loadPhotos: loadPhoto,
+         loadPhotos: loadPhoto,
     });
 
 })();
