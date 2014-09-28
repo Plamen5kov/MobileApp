@@ -13,21 +13,30 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/phone-gadjets.js"></script>
     <script src="scripts/contacts.js"></script>
+    <script src="scripts/userForm.js"></script>
 </head>
 
 <body>
+    <div data-role="layout" data-id="login-layout">
+        <div data-role="footer">
+            <div data-role="tabstrip">
+                <a href="#views/userForm.html" data-icon="about" data-transition="slide:left reverse">Login</a>
+            </div>
+        </div>
+    </div>
     <div data-role="layout" data-id="tabstrip-layout">
         <!--Header-->
         <div data-role="header">
-            <div data-role="navbar" data-title="asdasd">
-                <span data-role="view-title"></span>
-            </div>
+            <!--
+            <button data-role="button" data-align="center" data-model="userForm" data-bind="click: logout">
+                Logout
+            </button>
+            -->
         </div>
-        
         <!--Footer-->
         <div data-role="footer">
             <div data-role="tabstrip">
-                <a href="#views/add-pictures.html" data-icon="home" data-transition="slide">Add Pictures</a>
+                <a href="#views/add-pictures.html" data-icon="downloads" data-transition="slide">Add Pictures</a>
                 <a href="#views/gallery.html" data-icon="bookmarks" data-transition="slide:left reverse">Galery</a>
                 <a href="#views/contacts.html" data-icon="contacts" data-transition="slide:left reverse">Contacts</a>
             </div>

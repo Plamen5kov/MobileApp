@@ -101,10 +101,10 @@
     });
 
     document.addEventListener("deviceready", function () {
-        var app = new kendo.mobile.Application(document.body, {
+        window.app = new kendo.mobile.Application(document.body, {
             skin: "flat",
-            layout: "tabstrip-layout",
-            initial: "#initialView"
+            layout: "login-layout",
+            initial: "#login-view"
         });
     });
 
