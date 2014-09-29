@@ -1,12 +1,13 @@
 <div data-role="view" data-layout="tabstrip-layout" data-model="contactsModel">
-    
-    <div data-role="navbar">
-        <label for="contact-input">Search</label>
-        <input type="text" id="contact-input"/>
-        <button data-role="button" data-align="center" data-bind="click: getContacts">
-            Get Contacts
-        </button>
-        <ul id="contacts">
-        </ul>
+    <div id="touchSurface" data-role="touch" data-enable-swipe="1" data-swipe="myTouch.swipe">
+        <div data-role="navbar">
+            <label for="contact-input">Search</label>
+            <input type="text" id="contact-input" />
+            <button data-role="button" data-align="center" data-bind="click: getContacts">
+                Get Contacts
+            </button>
+            <ul id="contacts">
+            </ul>
+        </div>
     </div>
 </div>

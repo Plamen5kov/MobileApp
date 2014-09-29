@@ -18,6 +18,8 @@
     //if there are any photos already in the db ... show them immediatly
    
     document.addEventListener("deviceready", function () {
+        navigator.splashscreen.hide();
+        
         window.app = new kendo.mobile.Application(document.body, {
             skin: "flat",
             layout: "login-layout",

@@ -1,7 +1,7 @@
 /// <reference path="app.js" />
 (function () {
     var images = everlive.data("PictureInfo");
-
+    
     var loadPhoto = function () {
         images.get()
             .then(function (data) {
@@ -45,69 +45,71 @@
         })
             .then(loadPhoto);
     }
-     window.listView = kendo.observable({
-         addImage: function () {
-             var location = {};
-             var content = "";
+    window.listView = kendo.observable({
 
-             var picSuccess = function (data) {
+        addImage: function () {
 
-                 $.ajax({
-                     type: 'GET',
-                     url: 'http://maps.google.com/maps/api/geocode/json?latlng=' + location.latitude + ',' + location.longitude + '&sensor=false',
-                     contentType: 'application/json'
-                 })
-                 .then(function (info) {
-                     content = info.results[0].formatted_address || "";
-                 })
-                 .then(function () {
-                     window.everlive.Files.create({ //if you took the pic...create a file in everlive
-                         Filename: Math.random().toString(36).substring(2, 15) + ".jpg", //give it random name
-                         ContentType: "image/jpg", // config
-                         base64: data //more config
-                     },
-                     function (picData) {
-                         window.everlive.data('PictureInfo').create({
-                             'Img': picData.result,
-                             'Location': location,
-                             'Address': content
-                         },
-                             function (data) {
-                                 console.log(data);
-                             }, error);
-                     }, error);
-                 });
-             };
+            var location = {};
+            var content = "";
 
-             var error = function () {
-                 navigator.notification.alert("Unfortunately we could not add the image");
-             };
+            var picSuccess = function (data) {
 
-             var picConfig = {
-                 destinationType: Camera.DestinationType.DATA_URL,
-                 targetHeight: 400,
-                 targetWidth: 400
-             };
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://maps.google.com/maps/api/geocode/json?latlng=' + location.latitude + ',' + location.longitude + '&sensor=false',
+                    contentType: 'application/json'
+                })
+                    .then(function (info) {
+                        content = info.results[0].formatted_address || "";
+                    })
+                    .then(function () {
+                        window.everlive.Files.create({ //if you took the pic...create a file in everlive
+                                Filename: Math.random().toString(36).substring(2, 15) + ".jpg", //give it random name
+                                ContentType: "image/jpg", // config
+                                base64: data //more config
+                            },
+                            function (picData) {
+                                window.everlive.data('PictureInfo').create({
+                                        'Img': picData.result,
+                                        'Location': location,
+                                        'Address': content
+                                    },
+                                    function (data) {
+                                        console.log(data);
+                                    }, error);
+                            }, error);
+                    });
+            };
 
-             var geoConfig = {
-                 maximumAge: 3000,
-                 timeout: 5000,
-                 enableHighAccuracy: true
-             };
+            var error = function () {
+                navigator.notification.alert("Unfortunately we could not add the image");
+            };
 
-             var geoSuccess = function (data) {
-                 location = {
-                     latitude: data.coords.latitude,
-                     longitude: data.coords.longitude
-                 };
+            var picConfig = {
+                destinationType: Camera.DestinationType.DATA_URL,
+                targetHeight: 400,
+                targetWidth: 400
+            };
 
-                 navigator.camera.getPicture(picSuccess, error, picConfig);
-             };
+            var geoConfig = {
+                maximumAge: 3000,
+                timeout: 5000,
+                enableHighAccuracy: true
+            };
 
-             navigator.geolocation.getCurrentPosition(geoSuccess, error, geoConfig);
-         },
+            var geoSuccess = function (data) {
+                location = {
+                    latitude: data.coords.latitude,
+                    longitude: data.coords.longitude
+                };
 
-         loadPhotos: loadPhoto,
+                navigator.camera.getPicture(picSuccess, error, picConfig);
+            };
+
+            navigator.geolocation.getCurrentPosition(geoSuccess, error, geoConfig);
+        },
+
+        loadPhotos: loadPhoto,
     });
 
 })();

@@ -1,47 +1,121 @@
 (function () {
     window.phoneGadjets = kendo.observable({
+
         getMeterInfo: function () {
-            function onSuccess(acceleration) {
-                var accelerate = {};
-                accelerate.X = acceleration.x;
-                accelerate.Y = acceleration.y;
-                accelerate.Z = acceleration.z;
-                accelerate.timeStrap = acceleration.timestamp;
+            window.shake = {},
+            watchId = null,
+            options = {
+                frequency: 100
+            },
+            previousAcceleration = {
+                x: null,
+                y: null,
+                z: null
+            },
+            shakeCallBack = null;
 
-                var files = [];
-                files.push(accelerate);
-
-                $('#acel').kendoMobileListView({
-                    dataSource: files,
-                    template: '<p> #: data.X # </p> <p> #: data.Y # </p> <p> #: data.Z # </p> '
-                });
+            // Start watching the accelerometer for a shake gesture
+            shake.startWatch = function (onShake) {
+                if (onShake) {
+                    shakeCallBack = onShake;
+                }
+                watchId = navigator.accelerometer.watchAcceleration(getAccelerationSnapshot, handleError, options);
             };
 
-            function onError() {
-                alert('onError!');
+            // Stop watching the accelerometer for a shake gesture
+            shake.stopWatch = function () {
+                if (watchId !== null) {
+                    navigator.accelerometer.clearWatch(watchId);
+                    watchId = null;
+                }
             };
 
-            navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+            // Gets the current acceleration snapshot from the last accelerometer watch
+            function getAccelerationSnapshot() {
+                navigator.accelerometer.getCurrentAcceleration(assessCurrentAcceleration, handleError);
+            }
+
+            // Assess the current acceleration parameters to determine a shake
+            function assessCurrentAcceleration(acceleration) {
+                var accelerationChange = {};
+                if (previousAcceleration.x !== null) {
+                    accelerationChange.x = Math.abs(previousAcceleration.x, acceleration.x);
+                    accelerationChange.y = Math.abs(previousAcceleration.y, acceleration.y);
+                    accelerationChange.z = Math.abs(previousAcceleration.z, acceleration.z);
+                }
+                if (accelerationChange.x > 8 || accelerationChange.y > 8) {
+                    // Shake detected
+                    var msg = '';
+                    if (accelerationChange.x > 8) {
+                        msg = "you'll drop me!";
+                    }
+                    if (accelerationChange.z > 8) {
+                        msg = "i'm falling!";
+                    }
+                    
+                    if (typeof (shakeCallBack) === "function") {
+                        shakeCallBack(msg);
+                    }
+                    shake.stopWatch();
+                    setTimeout(shake.startWatch, 1000);
+                    previousAcceleration = {
+                        x: null,
+                        y: null,
+                        z: null
+                    }
+                } else {
+                    previousAcceleration = {
+                        x: acceleration.x,
+                        y: acceleration.y,
+                        z: acceleration.z
+                    }
+                }
+            }
+
+            // Handle errors here
+            function handleError() {}
+
+            function shaking(msg) {
+                navigator.notification.alert(msg);
+            }
+
+            shake.startWatch(shaking);
+        },
+
+        stopWather: function () {
+            shake.stopWatch();
         },
 
         getCompasHeading: function () {
-            function onSuccess(heading) {
-                var magnetHeading = heading.magneticHeading;
-                var files = [];
-                files.push(magnetHeading);
-                console.log(heading);
+            function direction() {
+                function onSuccess(heading) {
+                    var magnetHeading = heading.magneticHeading;
+                    var files = [];
 
-                $('#compas').kendoMobileListView({
-                    dataSource: files,
-                    template: '<p> #: data # </p>'
-                });
-            };
+                    if (magnetHeading >= 45 && magnetHeading < 135) {
+                        files.push("east");
+                    } else if (magnetHeading >= 135 && magnetHeading < 225) {
+                        files.push("south");
+                    } else if (magnetHeading >= 225 && magnetHeading < 315) {
+                        files.push("west");
+                    } else {
+                        files.push("north");
+                    }
 
-            function onError(error) {
-                alert('CompassError: ' + error.code);
-            };
+                    $('#compas').kendoMobileListView({
+                        dataSource: files,
+                        template: '<p> #: data # </p>'
+                    });
+                };
 
-            navigator.compass.getCurrentHeading(onSuccess, onError);
+                function onError(error) {
+                    alert('CompassError: ' + error.code);
+                };
+
+                navigator.compass.getCurrentHeading(onSuccess, onError);
+            }
+
+            setInterval(direction, 200);
         },
 
         record: function () {
@@ -67,7 +141,9 @@
             };
 
             // start video capture
-            navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:1});
+            navigator.device.capture.captureVideo(captureSuccess, captureError, {
+                limit: 1
+            });
 
         }
     });
