@@ -1,6 +1,5 @@
 <div data-role="view" id="initialView" data-id="initialView" data-model="listView" data-layout="tabstrip-layout" >
     <div data-role="navbar">
-       <!-- <a data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button">Btn</a> -->
         <button data-role="button" data-align="center" data-bind="click: addImage" id="mobile-button-icon">
             Add
         </button>
@@ -12,10 +11,7 @@
     </ul>
     <script>
         $("#mobile-button-icon").kendoMobileButton({
-            icon: "home",
-            click: function () {
-                //navigator.notification.alert("ALERT!");
-            }
+            icon: "home"
         });
     </script>
 </div>

@@ -1,4 +1,18 @@
 (function () {
+    
+    window.gadjetsTouch = {
+        swipe: function (e) {
+            // TODO: e.preventDeafault/stopPropagation 
+            console.log("swipe " + e.direction);
+            if(e.direction == "left") {
+                app.navigate('views/contacts.html');
+            }
+            if(e.direction == "right") {
+                app.navigate('views/add-pictures.html');
+            }
+        }
+    }
+    
     window.phoneGadjets = kendo.observable({
 
         getMeterInfo: function () {

@@ -1,33 +1,22 @@
-<div data-role="view" 
-     data-layout="tabstrip-layout" 
-     data-model="phoneGadjets">
-    
-    <div data-role="navbar">
-        
-        <button data-role="button" data-align="center" data-bind="click: getMeterInfo">
-            start watcher
-        </button>
-        
-        <button data-role="button" data-align="center" data-bind="click: stopWather">
-            stop watcher
-        </button>
-        
-        <button data-role="button" data-align="center" data-bind="click: getCompasHeading">
-           compas
-        </button>
-        
-        <button data-role="button" data-align="center" data-bind="click: record">
-            record
-        </button>
-        
-        <ul id="acel">
-        </ul>
-        
-        <ul id="compas">
-        </ul>
-        
-        <ul id="record">
-        </ul>
-        
+<div data-role="view" data-layout="tabstrip-layout" data-model="phoneGadjets">
+    <div data-role="touch" data-enable-swipe="1" data-swipe="gadjetsTouch.swipe">
+        <div data-role="navbar">
+            <button data-role="button" data-bind="click: getMeterInfo" class="bigBtn">
+                start watcher
+            </button>
+            <button data-role="button" data-bind="click: stopWather" class="bigBtn">
+                stop watcher
+            </button>
+            <button data-role="button" data-bind="click: getCompasHeading" class="bigBtn">
+                compas
+            </button>
+            <button data-role="button" data-bind="click: record" class="bigBtn">
+                record
+            </button>
+            <ul id="compas">
+            </ul>
+            <ul id="record">
+            </ul>
+        </div>
     </div>
 </div>

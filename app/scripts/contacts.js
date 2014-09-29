@@ -1,6 +1,6 @@
 (function () {
 
-    window.myTouch = {
+    window.contactsTouch = {
         swipe: function (e) {
             // TODO: e.preventDeafault/stopPropagation 
             console.log("swipe " + e.direction);

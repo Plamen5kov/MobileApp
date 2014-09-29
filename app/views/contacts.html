@@ -1,9 +1,14 @@
 <div data-role="view" data-layout="tabstrip-layout" data-model="contactsModel">
-    <div id="touchSurface" data-role="touch" data-enable-swipe="1" data-swipe="myTouch.swipe">
+    <div data-role="touch" data-enable-swipe="1" data-swipe="contactsTouch.swipe">
         <div data-role="navbar">
-            <label for="contact-input">Search</label>
-            <input type="text" id="contact-input" />
-            <button data-role="button" data-align="center" data-bind="click: getContacts">
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label>
+                        Search
+                    </label>
+                </li>
+            </ul>
+            <button data-role="button" data-align="center" data-bind="click: getContacts" class="bigBtn">
                 Get Contacts
             </button>
             <ul id="contacts">

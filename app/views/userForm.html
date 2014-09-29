@@ -1,15 +1,19 @@
-<div data-role="view" 
-     data-layout="login-layout"
-     data-model="userForm"
-     data-id="login-view">
-    
-    <label for="username-input">Username</label>
-    <input type="text" id="username-input" />
-    </br>
-    <label for="password-input">Password</label>
-    <input type="password" id="password-input" />
-    </br>
-    <button data-role="button" data-align="center" data-bind="click: login">
+<div data-role="view" data-layout="login-layout" data-model="userForm" data-id="login-view">
+    <ul data-role="listview" data-style="inset">
+        <li>
+            <label>
+                Username
+                <input id="username-input" type="text" value="asd" />
+            </label>
+        </li>
+        <li>
+            <label>
+                Password
+                <input id="password-input" type="password" value="asd" />
+            </label>
+        </li>
+    </ul>
+    <button data-role="button" data-bind="click: login" style="margin-left: 40%" class="bigBtn">
         Login
     </button>
 </div>
