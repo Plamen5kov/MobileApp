@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>a590013c-2b0a-4567-942e-03634d0cef9a</ProjectGuid>
+    <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".abproject" />
+    <Content Include="cordova.android.js" />
+    <Content Include="cordova.ios.js" />
+    <Content Include="cordova.wp8.js" />
+    <Content Include="index.html" />
+    <Content Include="kendo\js\angular.min.js" />
+    <Content Include="kendo\js\everlive.all.min.js" />
+    <Content Include="kendo\js\jquery-1.9.1.js" />
+    <Content Include="kendo\js\jquery.min.map" />
+    <Content Include="kendo\js\kendo.all.min.js" />
+    <Content Include="kendo\js\kendo.all.min.js.map" />
+    <Content Include="kendo\js\kendo.angular.min.js" />
+    <Content Include="kendo\js\kendo.angular.min.js.map" />
+    <Content Include="kendo\styles\kendo.common.min.css" />
+    <Content Include="kendo\styles\kendo.dataviz.default.min.css" />
+    <Content Include="kendo\styles\kendo.dataviz.min.css" />
+    <Content Include="kendo\styles\kendo.default.min.css" />
+    <Content Include="scripts\add-picture.js" />
+    <Content Include="scripts\app.js" />
+    <Content Include="scripts\contacts.js" />
+    <Content Include="scripts\phone-gadjets.js" />
+    <Content Include="scripts\places.js" />
+    <Content Include="scripts\userForm.js" />
+    <Content Include="styles\Black\editor.png" />
+    <Content Include="styles\Black\imagebrowser.png" />
+    <Content Include="styles\Black\indeterminate.gif" />
+    <Content Include="styles\Black\loading-image.gif" />
+    <Content Include="styles\Black\loading.gif" />
+    <Content Include="styles\Black\loading_2x.gif" />
+    <Content Include="styles\Black\markers.png" />
+    <Content Include="styles\Black\markers_2x.png" />
+    <Content Include="styles\Black\slider-h.gif" />
+    <Content Include="styles\Black\slider-v.gif" />
+    <Content Include="styles\Black\sprite.png" />
+    <Content Include="styles\Black\sprite_2x.png" />
+    <Content Include="styles\Black\Thumbs.db" />
+    <Content Include="styles\BlueOpal\editor.png" />
+    <Content Include="styles\BlueOpal\imagebrowser.png" />
+    <Content Include="styles\BlueOpal\indeterminate.gif" />
+    <Content Include="styles\BlueOpal\loading-image.gif" />
+    <Content Include="styles\BlueOpal\loading.gif" />
+    <Content Include="styles\BlueOpal\loading_2x.gif" />
+    <Content Include="styles\BlueOpal\markers.png" />
+    <Content Include="styles\BlueOpal\markers_2x.png" />
+    <Content Include="styles\BlueOpal\slider-h.gif" />
+    <Content Include="styles\BlueOpal\slider-v.gif" />
+    <Content Include="styles\BlueOpal\sprite.png" />
+    <Content Include="styles\BlueOpal\sprite_2x.png" />
+    <Content Include="styles\BlueOpal\Thumbs.db" />
+    <Content Include="styles\Bootstrap\editor.png" />
+    <Content Include="styles\Bootstrap\imagebrowser.png" />
+    <Content Include="styles\Bootstrap\indeterminate.gif" />
+    <Content Include="styles\Bootstrap\loading-image.gif" />
+    <Content Include="styles\Bootstrap\loading.gif" />
+    <Content Include="styles\Bootstrap\loading_2x.gif" />
+    <Content Include="styles\Bootstrap\markers.png" />
+    <Content Include="styles\Bootstrap\markers_2x.png" />
+    <Content Include="styles\Bootstrap\slider-h.gif" />
+    <Content Include="styles\Bootstrap\slider-v.gif" />
+    <Content Include="styles\Bootstrap\sprite.png" />
+    <Content Include="styles\Bootstrap\sprite_2x.png" />
+    <Content Include="styles\Bootstrap\Thumbs.db" />
+    <Content Include="styles\Default\editor.png" />
+    <Content Include="styles\Default\imagebrowser.png" />
+    <Content Include="styles\Default\indeterminate.gif" />
+    <Content Include="styles\Default\loading-image.gif" />
+    <Content Include="styles\Default\loading.gif" />
+    <Content Include="styles\Default\loading_2x.gif" />
+    <Content Include="styles\Default\markers.png" />
+    <Content Include="styles\Default\markers_2x.png" />
+    <Content Include="styles\Default\slider-h.gif" />
+    <Content Include="styles\Default\slider-v.gif" />
+    <Content Include="styles\Default\sprite.png" />
+    <Content Include="styles\Default\sprite_2x.png" />
+    <Content Include="styles\Default\Thumbs.db" />
+    <Content Include="styles\Flat\editor.png" />
+    <Content Include="styles\Flat\imagebrowser.png" />
+    <Content Include="styles\Flat\indeterminate.gif" />
+    <Content Include="styles\Flat\loading-image.gif" />
+    <Content Include="styles\Flat\loading.gif" />
+    <Content Include="styles\Flat\loading_2x.gif" />
+    <Content Include="styles\Flat\markers.png" />
+    <Content Include="styles\Flat\markers_2x.png" />
+    <Content Include="styles\Flat\slider-h.gif" />
+    <Content Include="styles\Flat\slider-v.gif" />
+    <Content Include="styles\Flat\sprite.png" />
+    <Content Include="styles\Flat\sprite_2x.png" />
+    <Content Include="styles\Flat\Thumbs.db" />
+    <Content Include="styles\HighContrast\editor.png" />
+    <Content Include="styles\HighContrast\imagebrowser.png" />
+    <Content Include="styles\HighContrast\indeterminate.gif" />
+    <Content Include="styles\HighContrast\loading-image.gif" />
+    <Content Include="styles\HighContrast\loading.gif" />
+    <Content Include="styles\HighContrast\loading_2x.gif" />
+    <Content Include="styles\HighContrast\markers.png" />
+    <Content Include="styles\HighContrast\markers_2x.png" />
+    <Content Include="styles\HighContrast\slider-h.gif" />
+    <Content Include="styles\HighContrast\slider-v.gif" />
+    <Content Include="styles\HighContrast\sprite.png" />
+    <Content Include="styles\HighContrast\sprite_2x.png" />
+    <Content Include="styles\images\back.png" />
+    <Content Include="styles\images\kendoui.svg" />
+    <Content Include="styles\images\kendoui.ttf" />
+    <Content Include="styles\images\kendoui.woff" />
+    <Content Include="styles\images\wp8_icons.png" />
+    <Content Include="styles\images\wp8_inverseicons.png" />
+    <Content Include="styles\kendo.common.min.css" />
+    <Content Include="styles\kendo.dataviz.default.min.css" />
+    <Content Include="styles\kendo.dataviz.min.css" />
+    <Content Include="styles\kendo.default.min.css" />
+    <Content Include="styles\MetroBlack\editor.png" />
+    <Content Include="styles\MetroBlack\imagebrowser.png" />
+    <Content Include="styles\MetroBlack\indeterminate.gif" />
+    <Content Include="styles\MetroBlack\loading-image.gif" />
+    <Content Include="styles\MetroBlack\loading.gif" />
+    <Content Include="styles\MetroBlack\loading_2x.gif" />
+    <Content Include="styles\MetroBlack\markers.png" />
+    <Content Include="styles\MetroBlack\markers_2x.png" />
+    <Content Include="styles\MetroBlack\slider-h.gif" />
+    <Content Include="styles\MetroBlack\slider-v.gif" />
+    <Content Include="styles\MetroBlack\sprite.png" />
+    <Content Include="styles\MetroBlack\sprite_2x.png" />
+    <Content Include="styles\Metro\editor.png" />
+    <Content Include="styles\Metro\imagebrowser.png" />
+    <Content Include="styles\Metro\indeterminate.gif" />
+    <Content Include="styles\Metro\loading-image.gif" />
+    <Content Include="styles\Metro\loading.gif" />
+    <Content Include="styles\Metro\loading_2x.gif" />
+    <Content Include="styles\Metro\markers.png" />
+    <Content Include="styles\Metro\markers_2x.png" />
+    <Content Include="styles\Metro\slider-h.gif" />
+    <Content Include="styles\Metro\slider-v.gif" />
+    <Content Include="styles\Metro\sprite.png" />
+    <Content Include="styles\Metro\sprite_2x.png" />
+    <Content Include="styles\Moonlight\editor.png" />
+    <Content Include="styles\Moonlight\imagebrowser.png" />
+    <Content Include="styles\Moonlight\indeterminate.gif" />
+    <Content Include="styles\Moonlight\loading-image.gif" />
+    <Content Include="styles\Moonlight\loading.gif" />
+    <Content Include="styles\Moonlight\loading_2x.gif" />
+    <Content Include="styles\Moonlight\markers.png" />
+    <Content Include="styles\Moonlight\markers_2x.png" />
+    <Content Include="styles\Moonlight\slider-h.gif" />
+    <Content Include="styles\Moonlight\slider-v.gif" />
+    <Content Include="styles\Moonlight\sprite.png" />
+    <Content Include="styles\Moonlight\sprite_2x.png" />
+    <Content Include="styles\Silver\editor.png" />
+    <Content Include="styles\Silver\imagebrowser.png" />
+    <Content Include="styles\Silver\indeterminate.gif" />
+    <Content Include="styles\Silver\loading-image.gif" />
+    <Content Include="styles\Silver\loading.gif" />
+    <Content Include="styles\Silver\loading_2x.gif" />
+    <Content Include="styles\Silver\markers.png" />
+    <Content Include="styles\Silver\markers_2x.png" />
+    <Content Include="styles\Silver\slider-h.gif" />
+    <Content Include="styles\Silver\slider-v.gif" />
+    <Content Include="styles\Silver\sprite.png" />
+    <Content Include="styles\Silver\sprite_2x.png" />
+    <Content Include="styles\textures\brushed-metal.png" />
+    <Content Include="styles\textures\dots1.png" />
+    <Content Include="styles\textures\dots10.png" />
+    <Content Include="styles\textures\dots11.png" />
+    <Content Include="styles\textures\dots12.png" />
+    <Content Include="styles\textures\dots13.png" />
+    <Content Include="styles\textures\dots2.png" />
+    <Content Include="styles\textures\dots3.png" />
+    <Content Include="styles\textures\dots4.png" />
+    <Content Include="styles\textures\dots5.png" />
+    <Content Include="styles\textures\dots6.png" />
+    <Content Include="styles\textures\dots7.png" />
+    <Content Include="styles\textures\dots8.png" />
+    <Content Include="styles\textures\dots9.png" />
+    <Content Include="styles\textures\glass-lighter.png" />
+    <Content Include="styles\textures\glass.png" />
+    <Content Include="styles\textures\highlight.png" />
+    <Content Include="styles\textures\hsv-gradient.png" />
+    <Content Include="styles\textures\hue.png" />
+    <Content Include="styles\textures\leather1.png" />
+    <Content Include="styles\textures\leather2.png" />
+    <Content Include="styles\textures\noise.png" />
+    <Content Include="styles\textures\stripe1.png" />
+    <Content Include="styles\textures\stripe2.png" />
+    <Content Include="styles\textures\stripe3.png" />
+    <Content Include="styles\textures\stripe4.png" />
+    <Content Include="styles\textures\stripe5.png" />
+    <Content Include="styles\textures\stripe6.png" />
+    <Content Include="styles\textures\transparency.png" />
+    <Content Include="styles\textures\transtexture.png" />
+    <Content Include="styles\Uniform\editor.png" />
+    <Content Include="styles\Uniform\imagebrowser.png" />
+    <Content Include="styles\Uniform\indeterminate.gif" />
+    <Content Include="styles\Uniform\loading-image.gif" />
+    <Content Include="styles\Uniform\loading.gif" />
+    <Content Include="styles\Uniform\loading_2x.gif" />
+    <Content Include="styles\Uniform\markers.png" />
+    <Content Include="styles\Uniform\markers_2x.png" />
+    <Content Include="styles\Uniform\slider-h.gif" />
+    <Content Include="styles\Uniform\slider-v.gif" />
+    <Content Include="styles\Uniform\sprite.png" />
+    <Content Include="styles\Uniform\sprite_2x.png" />
+    <Content Include="views\add-pictures.html" />
+    <Content Include="views\contacts.html" />
+    <Content Include="views\phone-gadjets.html" />
+    <Content Include="views\places-drawer.html" />
+    <Content Include="views\places.html" />
+    <Content Include="views\userForm.html" />
+    <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-mdpi\icon.png" />
+    <Resource Include="App_Resources\Android\drawable-nodpi\splashscreen.9.png" />
+    <Resource Include="App_Resources\iOS\Default-568h@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape.png" />
+    <Resource Include="App_Resources\iOS\Default-Landscape@2x.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait.png" />
+    <Resource Include="App_Resources\iOS\Default-Portrait@2x.png" />
+    <Resource Include="App_Resources\iOS\Default.png" />
+    <Resource Include="App_Resources\iOS\Default@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-40.png" />
+    <Resource Include="App_Resources\iOS\icon-40@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-60.png" />
+    <Resource Include="App_Resources\iOS\icon-60@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-72.png" />
+    <Resource Include="App_Resources\iOS\icon-72@2x.png" />
+    <Resource Include="App_Resources\iOS\icon-76.png" />
+    <Resource Include="App_Resources\iOS\icon-76@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small-50@2x.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small.png" />
+    <Resource Include="App_Resources\iOS\Icon-Small@2x.png" />
+    <Resource Include="App_Resources\iOS\icon.png" />
+    <Resource Include="App_Resources\iOS\icon@2x.png" />
+    <Resource Include="App_Resources\WP8\ApplicationIcon.png" />
+    <Resource Include="App_Resources\WP8\SplashScreenImage.jpg" />
+    <Resource Include="App_Resources\WP8\Tiles\Iconic\110x110.png" />
+    <Resource Include="App_Resources\WP8\Tiles\Iconic\202x202.png" />
+    <Content Include="kendo\js\jquery.min.js" />
+    <Content Include="kendo\js\kendo.mobile.min.js" />
+    <Content Include="kendo\styles\kendo.mobile.all.min.css" />
+    <Content Include="kendo\styles\images\back.png" />
+    <Content Include="kendo\styles\images\kendoui.svg" />
+    <Content Include="kendo\styles\images\kendoui.ttf" />
+    <Content Include="kendo\styles\images\kendoui.woff" />
+    <Content Include="kendo\styles\images\wp8_icons.png" />
+    <Content Include="kendo\styles\images\wp8_inverseicons.png" />
+    <Content Include="kendo\typescript\jquery.d.ts" />
+    <Content Include="kendo\typescript\kendo.mobile.d.ts" />
+    <Content Include="styles\main.css" />
+    <Content Include="styles\images\appbuilder.png" />
+    <Content Include="styles\images\appbuilder2x.png" />
+    <Content Include="styles\images\location.png" />
+    <Content Include="styles\images\location2x.png" />
+    <Content Include="styles\images\location_active.png" />
+    <Content Include="styles\images\location_active2x.png" />
+    <Content Include="styles\images\logo.png" />
+    <Content Include="styles\images\logo2x.png" />
+    <Content Include="styles\images\search.png" />
+    <Content Include="styles\images\search2x.png" />
+    <Content Include="styles\images\search_active.png" />
+    <Content Include="styles\images\search_active2x.png" />
+    <Content Include="styles\images\sprite-weather.png" />
+    <Content Include="styles\images\sprite-weather2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Resources\" />
+    <Folder Include="App_Resources\Android\" />
+    <Folder Include="App_Resources\Android\drawable-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-nodpi\" />
+    <Folder Include="App_Resources\iOS\" />
+    <Folder Include="App_Resources\WP8\" />
+    <Folder Include="App_Resources\WP8\Tiles\" />
+    <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="kendo\" />
+    <Folder Include="kendo\js\" />
+    <Folder Include="kendo\styles\" />
+    <Folder Include="kendo\styles\images\" />
+    <Folder Include="kendo\typescript\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="scripts\" />
+    <Folder Include="styles\" />
+    <Folder Include="styles\Black\" />
+    <Folder Include="styles\BlueOpal\" />
+    <Folder Include="styles\Bootstrap\" />
+    <Folder Include="styles\Default\" />
+    <Folder Include="styles\Flat\" />
+    <Folder Include="styles\HighContrast\" />
+    <Folder Include="styles\images\" />
+    <Folder Include="styles\MetroBlack\" />
+    <Folder Include="styles\Metro\" />
+    <Folder Include="styles\Moonlight\" />
+    <Folder Include="styles\Silver\" />
+    <Folder Include="styles\textures\" />
+    <Folder Include="styles\Uniform\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <Import Project="$(IceniumTargets)Build.targets" />
+  <!--
+    TODO: Uncomment this code if you need to customize the build process.
+    <Target Name="BeforeBuild">
+        <Message Text="TODO: Implement BeforeBuild" Importance="high" />
+    </Target>
+
+    <Target Name="AfterBuild">
+        <Message Text="TODO: Implement AfterBuild" Importance="high" />
+    </Target>
+    -->
+</Project>

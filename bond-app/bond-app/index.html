@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .k-marker-my-style {
+            background-color: #00f;
+            border-radius: 5px;
+        }
+    </style>
+    <meta charset="utf-8">
+
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="styles/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+
+    <script src="cordova.js"></script>
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.mobile.min.js"></script>
+    <script src="kendo/js/kendo.angular.min.js"></script>
+    <script src="kendo/js/jquery-1.9.1.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="https://bs-static.cdn.telerik.com/1.2.5/everlive.all.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/add-picture.js"></script>
+    <script src="scripts/phone-gadjets.js"></script>
+    <script src="scripts/contacts.js"></script>
+    <script src="scripts/userForm.js"></script>
+
+</head>
+<body>
+    <!-- login layout -->
+    <div data-role="layout" data-id="login-layout">
+        <div data-role="footer">
+            <div data-role="tabstrip">
+                <a href="#views/userForm.html" data-icon="about" data-transition="slide:left reverse">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!--drawer for map -->
+    <div data-role="drawer" id="my-drawer" style="width: 95%" data-views="['initialView']">
+        <div class="demo-section k-header" style="padding: 1em;">
+            <div id="map"></div>
+        </div>
+    </div>
+    <!-- main layout -->
+    <div data-role="layout" data-id="tabstrip-layout">
+        <div data-role="header">
+            <!--
+            <button data-role="button" data-align="center" data-model="userForm" data-bind="click: logout">
+                Logout
+            </button>
+            -->
+        </div>
+        <!--Footer-->
+        <div data-role="footer">
+            <div data-role="tabstrip">
+                <a href="#views/add-pictures.html" data-icon="home" data-transition="slide">Add Pictures</a>
+                <a href="#views/phone-gadjets.html" data-icon="bookmarks" data-transition="slide:right reverse">Gadgets</a>
+                <a href="#views/contacts.html" data-icon="contacts" data-transition="slide:right reverse">Contacts</a>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/places.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "bond-app", "bond-app\bond-app.iceproj", "{A590013C-2B0A-4567-942E-03634D0CEF9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A590013C-2B0A-4567-942E-03634D0CEF9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A590013C-2B0A-4567-942E-03634D0CEF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A590013C-2B0A-4567-942E-03634D0CEF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A590013C-2B0A-4567-942E-03634D0CEF9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
