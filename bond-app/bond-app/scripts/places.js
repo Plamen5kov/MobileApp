@@ -14,6 +14,7 @@
                                   latitude: position.coords.latitude,
                                   longitude: position.coords.longitude
                               }
+                              console.log(returnValue.latitude + ' ' + returnValue.longitude);
                               // and here you call the callback with whatever
                               // data you need to return as a parameter.
                               callback(returnValue);
@@ -28,7 +29,7 @@
                     });
 
                     function errorMessage(error) {
-                        console.log('navigation error: ' + error);
+                        alert('We need GPS!');
                     }
 
                     var geoConfig = {
@@ -40,7 +41,7 @@
                             data.result.forEach(function (image) {
                                 markers.push({
                                     "location": [image.Location.latitude, image.Location.longitude],
-                                    "shape": "pinTarget",
+                                    "shape": "pin",
                                     "tooltip": {
                                         "content": image.Address || ""
                                     }
@@ -63,9 +64,6 @@
                             console.log(error);
                         })
                         .then(function (data) {
-                            var dataResult = {};
-                            dataResult = data;
-
                             console.log(data.results[0].formatted_address);
                             if (!data.results[0]) {
                                 location.reload();
@@ -75,7 +73,7 @@
 
                             markers.push({
                                 "location": [currentPosition.latitude, currentPosition.longitude],
-                                "shape": "myStyle",
+                                "shape": "pinTarget",
                                 "tooltip": {
                                     "content": data.results[0].formatted_address || ""
                                 }
