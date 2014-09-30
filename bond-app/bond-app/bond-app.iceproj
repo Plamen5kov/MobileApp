@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>a590013c-2b0a-4567-942e-03634d0cef9a</ProjectGuid>
+    <ProjectGuid>c8f413fe-0214-42a0-b7cc-c80a7ccd599d</ProjectGuid>
     <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -29,15 +29,26 @@
     <Content Include="kendo\js\angular.min.js" />
     <Content Include="kendo\js\everlive.all.min.js" />
     <Content Include="kendo\js\jquery-1.9.1.js" />
+    <Content Include="kendo\js\jquery.min.js" />
     <Content Include="kendo\js\jquery.min.map" />
     <Content Include="kendo\js\kendo.all.min.js" />
     <Content Include="kendo\js\kendo.all.min.js.map" />
     <Content Include="kendo\js\kendo.angular.min.js" />
     <Content Include="kendo\js\kendo.angular.min.js.map" />
+    <Content Include="kendo\js\kendo.mobile.min.js" />
+    <Content Include="kendo\styles\images\back.png" />
+    <Content Include="kendo\styles\images\kendoui.svg" />
+    <Content Include="kendo\styles\images\kendoui.ttf" />
+    <Content Include="kendo\styles\images\kendoui.woff" />
+    <Content Include="kendo\styles\images\wp8_icons.png" />
+    <Content Include="kendo\styles\images\wp8_inverseicons.png" />
     <Content Include="kendo\styles\kendo.common.min.css" />
     <Content Include="kendo\styles\kendo.dataviz.default.min.css" />
     <Content Include="kendo\styles\kendo.dataviz.min.css" />
     <Content Include="kendo\styles\kendo.default.min.css" />
+    <Content Include="kendo\styles\kendo.mobile.all.min.css" />
+    <Content Include="kendo\typescript\jquery.d.ts" />
+    <Content Include="kendo\typescript\kendo.mobile.d.ts" />
     <Content Include="scripts\add-picture.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\contacts.js" />
@@ -121,16 +132,31 @@
     <Content Include="styles\HighContrast\slider-v.gif" />
     <Content Include="styles\HighContrast\sprite.png" />
     <Content Include="styles\HighContrast\sprite_2x.png" />
+    <Content Include="styles\images\appbuilder.png" />
+    <Content Include="styles\images\appbuilder2x.png" />
     <Content Include="styles\images\back.png" />
     <Content Include="styles\images\kendoui.svg" />
     <Content Include="styles\images\kendoui.ttf" />
     <Content Include="styles\images\kendoui.woff" />
+    <Content Include="styles\images\location.png" />
+    <Content Include="styles\images\location2x.png" />
+    <Content Include="styles\images\location_active.png" />
+    <Content Include="styles\images\location_active2x.png" />
+    <Content Include="styles\images\logo.png" />
+    <Content Include="styles\images\logo2x.png" />
+    <Content Include="styles\images\search.png" />
+    <Content Include="styles\images\search2x.png" />
+    <Content Include="styles\images\search_active.png" />
+    <Content Include="styles\images\search_active2x.png" />
+    <Content Include="styles\images\sprite-weather.png" />
+    <Content Include="styles\images\sprite-weather2x.png" />
     <Content Include="styles\images\wp8_icons.png" />
     <Content Include="styles\images\wp8_inverseicons.png" />
     <Content Include="styles\kendo.common.min.css" />
     <Content Include="styles\kendo.dataviz.default.min.css" />
     <Content Include="styles\kendo.dataviz.min.css" />
     <Content Include="styles\kendo.default.min.css" />
+    <Content Include="styles\main.css" />
     <Content Include="styles\MetroBlack\editor.png" />
     <Content Include="styles\MetroBlack\imagebrowser.png" />
     <Content Include="styles\MetroBlack\indeterminate.gif" />
@@ -225,7 +251,6 @@
     <Content Include="views\contacts.html" />
     <Content Include="views\phone-gadjets.html" />
     <Content Include="views\places-drawer.html" />
-    <Content Include="views\places.html" />
     <Content Include="views\userForm.html" />
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
     <Resource Include="App_Resources\Android\drawable-ldpi\icon.png" />
@@ -256,32 +281,6 @@
     <Resource Include="App_Resources\WP8\SplashScreenImage.jpg" />
     <Resource Include="App_Resources\WP8\Tiles\Iconic\110x110.png" />
     <Resource Include="App_Resources\WP8\Tiles\Iconic\202x202.png" />
-    <Content Include="kendo\js\jquery.min.js" />
-    <Content Include="kendo\js\kendo.mobile.min.js" />
-    <Content Include="kendo\styles\kendo.mobile.all.min.css" />
-    <Content Include="kendo\styles\images\back.png" />
-    <Content Include="kendo\styles\images\kendoui.svg" />
-    <Content Include="kendo\styles\images\kendoui.ttf" />
-    <Content Include="kendo\styles\images\kendoui.woff" />
-    <Content Include="kendo\styles\images\wp8_icons.png" />
-    <Content Include="kendo\styles\images\wp8_inverseicons.png" />
-    <Content Include="kendo\typescript\jquery.d.ts" />
-    <Content Include="kendo\typescript\kendo.mobile.d.ts" />
-    <Content Include="styles\main.css" />
-    <Content Include="styles\images\appbuilder.png" />
-    <Content Include="styles\images\appbuilder2x.png" />
-    <Content Include="styles\images\location.png" />
-    <Content Include="styles\images\location2x.png" />
-    <Content Include="styles\images\location_active.png" />
-    <Content Include="styles\images\location_active2x.png" />
-    <Content Include="styles\images\logo.png" />
-    <Content Include="styles\images\logo2x.png" />
-    <Content Include="styles\images\search.png" />
-    <Content Include="styles\images\search2x.png" />
-    <Content Include="styles\images\search_active.png" />
-    <Content Include="styles\images\search_active2x.png" />
-    <Content Include="styles\images\sprite-weather.png" />
-    <Content Include="styles\images\sprite-weather2x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Resources\" />
